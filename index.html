@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="theme-color" content="#1a1a2e"/>
+  <title>Siya Developers – SIYARA INDUSTRIES</title>
+  <link rel="stylesheet" href="css/style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo-wrap">
+      <img src="images/Siya%20Developers.png" alt="Logo" class="logo" onerror="this.style.display='none'"/>
+      <div class="logo-text">
+        <span class="brand-main">SIYA DEVELOPERS</span>
+        <span class="brand-sub">SIYARA INDUSTRIES</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- FULL BROCHURE BANNER -->
+  <section class="banner-section">
+    <img src="images/Broucher.png" alt="SIYARA INDUSTRIES Brochure" class="banner-img"/>
+  </section>
+
+  <!-- QUICK ACTION BUTTONS -->
+  <section class="actions">
+    <div class="actions-grid">
+
+      <button class="action-btn" onclick="openBrochureModal()">
+        <span class="btn-icon ic1"><i class="fa-solid fa-file-pdf"></i></span>
+        <span class="btn-label">Brochure</span>
+      </button>
+
+      <a class="action-btn" href="https://maps.google.com/?q=SIYARA+INDUSTRIES+SIYA+DEVELOPERS" target="_blank">
+        <span class="btn-icon ic2"><i class="fa-solid fa-location-dot"></i></span>
+        <span class="btn-label">Location</span>
+      </a>
+
+      <a class="action-btn" href="mailto:info@siyadevelopers.com">
+        <span class="btn-icon ic3"><i class="fa-solid fa-envelope"></i></span>
+        <span class="btn-label">Email Us</span>
+      </a>
+
+      <a class="action-btn" href="tel:+919998824005">
+        <span class="btn-icon ic4"><i class="fa-solid fa-building"></i></span>
+        <span class="btn-label">Booking</span>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- COMPANY DETAILS -->
+  <section class="details-section">
+    <div class="details-card">
+      <h2><i class="fa-solid fa-circle-info"></i> About Us</h2>
+      <p>Welcome to <strong>SIYARA INDUSTRIES</strong> — a premium development by <strong>Siya Developers</strong>. We build world-class spaces that redefine modern living and commercial excellence.</p>
+      <ul class="info-list">
+        <li>
+          <span class="info-icon"><i class="fa-solid fa-industry"></i></span>
+          <div><small>Industry</small><strong>SIYARA INDUSTRIES</strong></div>
+        </li>
+        <li>
+          <span class="info-icon"><i class="fa-solid fa-city"></i></span>
+          <div><small>Developer</small><strong>SIYA DEVELOPERS</strong></div>
+        </li>
+        <li>
+          <span class="info-icon"><i class="fa-solid fa-phone"></i></span>
+          <div><small>Mobile</small><strong>99988 24005</strong></div>
+        </li>
+        <li>
+          <span class="info-icon"><i class="fa-solid fa-door-open"></i></span>
+          <div><small>Booking Office</small><strong>Contact Us for Details</strong></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2024 Siya Developers &amp; SIYARA INDUSTRIES</p>
+    <p>All Rights Reserved</p>
+  </footer>
+
+  <!-- STICKY BOTTOM BAR -->
+  <div class="bottom-bar">
+    <a href="https://wa.me/919998824005" class="bar-btn whatsapp" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i>
+      <span>WhatsApp</span>
+    </a>
+    <a href="tel:+919998824005" class="bar-btn call">
+      <i class="fa-solid fa-phone-volume"></i>
+      <span>Call Now</span>
+    </a>
+  </div>
+
+  <!-- BROCHURE BOTTOM-SHEET MODAL -->
+  <div class="sheet-overlay" id="brochureSheet">
+    <div class="sheet">
+      <div class="sheet-handle"></div>
+      <button class="sheet-close" onclick="closeSheet()"><i class="fa-solid fa-xmark"></i></button>
+      <div class="sheet-icon"><i class="fa-solid fa-file-pdf"></i></div>
+      <h3>Download Brochure</h3>
+      <p>Fill in your details to get the <strong>SIYARA INDUSTRIES</strong> brochure.</p>
+      <form onsubmit="handleDownload(event)">
+        <div class="field">
+          <i class="fa-solid fa-user"></i>
+          <input type="text" placeholder="Your Full Name" required autocomplete="name"/>
+        </div>
+        <div class="field">
+          <i class="fa-solid fa-mobile-screen"></i>
+          <input type="tel" placeholder="Mobile Number" required autocomplete="tel" inputmode="numeric"/>
+        </div>
+        <div class="field">
+          <i class="fa-solid fa-envelope"></i>
+          <input type="email" placeholder="Email (optional)" autocomplete="email"/>
+        </div>
+        <button type="submit" class="download-btn">
+          <i class="fa-solid fa-download"></i> Download Now
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function openBrochureModal() {
+      var s = document.getElementById('brochureSheet');
+      s.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeSheet() {
+      var s = document.getElementById('brochureSheet');
+      s.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    function handleDownload(e) {
+      e.preventDefault();
+      var a = document.createElement('a');
+      a.href = 'images/Siya%20Developers.pdf';
+      a.download = 'Siya-Developers-Brochure.pdf';
+      a.click();
+      closeSheet();
+    }
+    document.getElementById('brochureSheet').addEventListener('click', function(e) {
+      if (e.target === this) closeSheet();
+    });
+  </script>
+
+</body>
+</html>
