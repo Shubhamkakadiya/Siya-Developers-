@@ -23,19 +23,20 @@
     </div>
   </header>
 
-  <!-- FULL BROCHURE BANNER -->
-  <section class="banner-section">
-    <img src="images/Broucher.png" alt="SIYARA INDUSTRIES Brochure" class="banner-img"/>
+  <!-- HERO SECTION -->
+  <section class="hero-section">
+    <span class="hero-tag">Premium Industrial Development</span>
+    <h1 class="hero-title">SIYARA<br>INDUSTRIES</h1>
+    <span class="hero-accent"></span>
+    <p class="hero-by">by <strong>Siya Developers</strong></p>
+    <a href="tel:+919998824005" class="hero-cta">
+      <i class="fa-solid fa-phone"></i> Book a Site Visit
+    </a>
   </section>
 
   <!-- QUICK ACTION BUTTONS -->
   <section class="actions">
     <div class="actions-grid">
-
-      <button class="action-btn" onclick="openBrochureModal()">
-        <span class="btn-icon ic1"><i class="fa-solid fa-file-pdf"></i></span>
-        <span class="btn-label">Brochure</span>
-      </button>
 
       <a class="action-btn" href="https://maps.google.com/?q=SIYARA+INDUSTRIES+SIYA+DEVELOPERS" target="_blank">
         <span class="btn-icon ic2"><i class="fa-solid fa-location-dot"></i></span>
@@ -59,7 +60,6 @@
   <section class="details-section">
     <div class="details-card">
       <h2><i class="fa-solid fa-circle-info"></i> About Us</h2>
-      <p>Welcome to <strong>SIYARA INDUSTRIES</strong> — a premium development by <strong>Siya Developers</strong>. We build world-class spaces that redefine modern living and commercial excellence.</p>
       <ul class="info-list">
         <li>
           <span class="info-icon"><i class="fa-solid fa-industry"></i></span>
@@ -98,58 +98,6 @@
       <span>Call Now</span>
     </a>
   </div>
-
-  <!-- BROCHURE BOTTOM-SHEET MODAL -->
-  <div class="sheet-overlay" id="brochureSheet">
-    <div class="sheet">
-      <div class="sheet-handle"></div>
-      <button class="sheet-close" onclick="closeSheet()"><i class="fa-solid fa-xmark"></i></button>
-      <div class="sheet-icon"><i class="fa-solid fa-file-pdf"></i></div>
-      <h3>Download Brochure</h3>
-      <p>Fill in your details to get the <strong>SIYARA INDUSTRIES</strong> brochure.</p>
-      <form onsubmit="handleDownload(event)">
-        <div class="field">
-          <i class="fa-solid fa-user"></i>
-          <input type="text" placeholder="Your Full Name" required autocomplete="name"/>
-        </div>
-        <div class="field">
-          <i class="fa-solid fa-mobile-screen"></i>
-          <input type="tel" placeholder="Mobile Number" required autocomplete="tel" inputmode="numeric"/>
-        </div>
-        <div class="field">
-          <i class="fa-solid fa-envelope"></i>
-          <input type="email" placeholder="Email (optional)" autocomplete="email"/>
-        </div>
-        <button type="submit" class="download-btn">
-          <i class="fa-solid fa-download"></i> Download Now
-        </button>
-      </form>
-    </div>
-  </div>
-
-  <script>
-    function openBrochureModal() {
-      var s = document.getElementById('brochureSheet');
-      s.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-    function closeSheet() {
-      var s = document.getElementById('brochureSheet');
-      s.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-    function handleDownload(e) {
-      e.preventDefault();
-      var a = document.createElement('a');
-      a.href = 'images/Siya%20Developers.pdf';
-      a.download = 'Siya-Developers-Brochure.pdf';
-      a.click();
-      closeSheet();
-    }
-    document.getElementById('brochureSheet').addEventListener('click', function(e) {
-      if (e.target === this) closeSheet();
-    });
-  </script>
 
 </body>
 </html>

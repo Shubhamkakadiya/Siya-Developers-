@@ -87,19 +87,107 @@ header {
   text-transform: uppercase;
 }
 
-/* ── BANNER ────────────────────────────────────────────── */
-.banner-section {
-  width: 100%;
-  background: var(--bg2);
-  line-height: 0;
-  border-bottom: 3px solid var(--caramel);
+/* ── HERO SECTION ──────────────────────────────────────── */
+.hero-section {
+  background: linear-gradient(160deg, var(--navy2) 0%, var(--navy) 55%, #1a2760 100%);
+  padding: 40px 20px 48px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--caramel3);
 }
 
-.banner-img {
-  width: 100%;
-  height: auto;
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,149,106,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: -60px;
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-tag {
+  display: inline-block;
+  background: rgba(201,149,106,0.18);
+  border: 1px solid rgba(201,149,106,0.35);
+  color: var(--caramel2);
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  padding: 5px 16px;
+  border-radius: 20px;
+  margin-bottom: 18px;
+}
+
+.hero-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: var(--white);
+  letter-spacing: 3px;
+  line-height: 1.1;
+  text-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.hero-accent {
   display: block;
-  object-fit: contain;
+  width: 56px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--caramel3), var(--caramel2));
+  border-radius: 3px;
+  margin: 14px auto 14px;
+}
+
+.hero-by {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 28px;
+  letter-spacing: 0.5px;
+}
+
+.hero-by strong {
+  color: var(--caramel2);
+  font-weight: 600;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(135deg, var(--caramel3), var(--caramel));
+  color: var(--white);
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 8px 24px rgba(176,120,69,0.45);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-cta:active {
+  transform: scale(0.95);
+  box-shadow: 0 3px 10px rgba(176,120,69,0.3);
 }
 
 /* ── ACTION BUTTONS ────────────────────────────────────── */
@@ -111,7 +199,7 @@ header {
 
 .actions-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 8px;
 }
 
@@ -146,15 +234,13 @@ header {
 }
 
 /* Per-button border + label color on hover */
-.actions-grid .action-btn:nth-child(1):hover { border-color: var(--caramel3); }
-.actions-grid .action-btn:nth-child(2):hover { border-color: var(--navy); }
-.actions-grid .action-btn:nth-child(3):hover { border-color: var(--caramel); }
-.actions-grid .action-btn:nth-child(4):hover { border-color: var(--navy3); }
+.actions-grid .action-btn:nth-child(1):hover { border-color: var(--navy); }
+.actions-grid .action-btn:nth-child(2):hover { border-color: var(--caramel); }
+.actions-grid .action-btn:nth-child(3):hover { border-color: var(--navy3); }
 
-.actions-grid .action-btn:nth-child(1):hover .btn-label { color: var(--caramel3); }
-.actions-grid .action-btn:nth-child(2):hover .btn-label { color: var(--navy2); }
-.actions-grid .action-btn:nth-child(3):hover .btn-label { color: var(--caramel); }
-.actions-grid .action-btn:nth-child(4):hover .btn-label { color: var(--navy3); }
+.actions-grid .action-btn:nth-child(1):hover .btn-label { color: var(--navy2); }
+.actions-grid .action-btn:nth-child(2):hover .btn-label { color: var(--caramel); }
+.actions-grid .action-btn:nth-child(3):hover .btn-label { color: var(--navy3); }
 
 /* Icon bounce + grow on hover */
 .action-btn:hover .btn-icon {
@@ -223,12 +309,6 @@ header {
 
 .details-card h2 i { color: var(--caramel); font-size: 0.95rem; }
 
-.details-card p {
-  font-size: 0.82rem;
-  color: var(--gray);
-  line-height: 1.75;
-  margin-bottom: 16px;
-}
 
 .info-list {
   list-style: none;
